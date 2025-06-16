@@ -1,5 +1,11 @@
 # @agentset/mcp
 
+## 1.3.0
+
+### Minor Changes
+
+- ab4b1fa: Upgrade dependencies
+
 ## 1.2.0
 
 ### Minor Changes
