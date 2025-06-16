@@ -3,15 +3,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Agentset } from "agentset";
 import { Command } from "commander";
-import fetch from "node-fetch";
+import nodeFetch from "node-fetch";
 import { z } from "zod";
 
 import { getVersion, parseOptions } from "./utils";
-
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-if (!globalThis.fetch) {
-  globalThis.fetch = fetch as unknown as typeof global.fetch;
-}
 
 // Parse command line arguments
 const program = new Command();
@@ -37,7 +32,19 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-const agentset = new Agentset({ apiKey: API_KEY });
+const agentset = new Agentset({
+  apiKey: API_KEY,
+  fetcher: (url, init) => {
+    return nodeFetch(
+      typeof url === "string"
+        ? url
+        : url instanceof URL
+          ? url.toString()
+          : url.url,
+      init as any,
+    ) as unknown as Promise<Response>;
+  },
+});
 const ns = agentset.namespace(NAMESPACE_ID);
 
 server.tool(
