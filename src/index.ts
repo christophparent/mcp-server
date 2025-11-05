@@ -28,7 +28,7 @@ const { API_KEY, NAMESPACE_ID, tenantId, description } = parseOptions(options);
 
 // Create an MCP server
 const server = new McpServer({
-  name: "Agentset MCP",
+  name: "agentset-mcp",
   version: "1.0.0",
 });
 

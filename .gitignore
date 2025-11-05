@@ -6,4 +6,5 @@ dist
 dist-ssr
 *.local
 .env
+.env.*
 .cache

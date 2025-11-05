@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "agentset-ahri": {
+      "description": "AHRI-certified HVAC product information search",
+      "command": "node",
+      "args": [
+        "/Users/christopherparent/Documents/GitHub/agentset-mcp/dist/index.js"
+      ],
+      "env": {
+        "AGENTSET_API_KEY": "agentset_reLRQJoRvkJbhXLV",
+        "AGENTSET_NAMESPACE_ID": "ns_cmhg84aeu0001js04skomqbwk"
+      }
+    },
+    "agentset-emco": {
+      "description": "EMCO products knowledge base",
+      "command": "node",
+      "args": [
+        "/Users/christopherparent/Documents/GitHub/agentset-mcp/dist/index.js"
+      ],
+      "env": {
+        "AGENTSET_API_KEY": "agentset_slRwPLavVLwOMerv",
+        "AGENTSET_NAMESPACE_ID": "ns_cmftzdig10001l104zw9nzll3"
+      }
+    }
+  }
+}
